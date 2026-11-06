@@ -1,0 +1,6 @@
+Vendor Compass — Copyright 2026 Roxyz0501. Apache License 2.0.
+ConfigStore.cs, Loc.cs and LocalizedFonts.cs contain selected code adapted from
+Gil Beacon and Bait Beacon (Copyright 2026 Roxyz0501, Apache License 2.0).
+https://github.com/Roxyz0501/GilBeacon
+https://github.com/Roxyz0501/BaitBeacon
+StandardPluginTabs.cs is the shared Roxyz0501 UI implementation.

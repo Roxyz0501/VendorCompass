@@ -1,0 +1,10 @@
+# Vendor Compass 1.0.0.0 — 2026-11-07
+
+New standalone plugin. .NET 10 Release rebuild, Dalamud API 15, zero errors and warnings.
+
+- The offline checker uses the same catalog builder as the plugin against local SqPack version 2026.10.16.0000.0000. It found 15,710 distinct items. Gysahl Greens had 92 placements, Bronze Ingot 9 including Engerrand in territory 129, Hempen Yarn 8. Fire Shard returned no vendor. NQ, HQ and collectible menu IDs and invalid/event IDs passed.
+- A single background build indexes GilShopItem and SpecialShop rewards, traverses menu handlers and InclusionShop categories, and joins Level and public field/town planevent placements. Opening an item menu only checks the in-memory item index. 100,000 repeated warm checks took 2 ms on this machine. Item selection resolves names only for the selected item and its vendors; switching pages performs no further sheet reads. No web requests or database writes. Rendering is limited to 12 rows per page. Movement IPC is queried only for an active trip, at most five update ticks per second.
+- All 38 localized resource keys had seven non-empty values with matching placeholder counts. The host Noto Sans CJK font collection covered the required glyphs. The shared tab source matched the canonical template byte for byte. Game names use the host default font.
+- Five changed saves wrote a combined 220 logical bytes. 480 unchanged checkpoints added zero writes. Verified three previous generations, logout flush, restart, and recovery from a damaged primary using isolated fixture files.
+- Verified the release ZIP, assembly, manifest URLs/version, square 512 px icon, license and notices. Source and DLL inspected for workstation paths and credential signatures.
+- In-game interaction is pending: item context menus in individual addons, shop unlock/quest conditions, teleport cast, zone transitions, actual mesh reachability, arrival/cancellation, and visual inspection in the running client. The plugin makes no purchases and does not interact with the NPC.

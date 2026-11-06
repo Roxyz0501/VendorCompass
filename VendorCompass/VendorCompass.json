@@ -1,0 +1,16 @@
+{
+  "Author": "Roxyz0501",
+  "Name": "Vendor Compass",
+  "InternalName": "VendorCompass",
+  "Punchline": "Find NPC vendors from an item’s context menu and travel to their shops.",
+  "Description": "Right-click an item to choose a vendor, mark the map, or travel via an unlocked aetheryte and walk using vnavmesh. Open with /vendorcompass.",
+  "DalamudApiLevel": 15,
+  "ApplicableVersion": "any",
+  "Tags": [
+    "vendor",
+    "item",
+    "navigation"
+  ],
+  "RepoUrl": "https://github.com/Roxyz0501/VendorCompass",
+  "IconUrl": "https://raw.githubusercontent.com/Roxyz0501/VendorCompass/main/VendorCompass/images/icon.png"
+}

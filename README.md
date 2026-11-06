@@ -1,2 +1,24 @@
-# VendorCompass
-Find FFXIV NPC vendors from an item's context menu and travel to them.
+# Vendor Compass
+
+チャットに貼られたアイテムや製作手帳の素材から、販売NPCの場所を調べて移動できるDalamudプラグインです。
+
+1. Dalamudのカスタムリポジトリに [Roxyz0501 の配布インデックス](https://raw.githubusercontent.com/Roxyz0501/DalamudPluginRepo/main/repo.json) を登録し、プラグイン一覧から **Vendor Compass** をインストールします。
+2. ゲーム内でアイテムを右クリックし、**販売NPCを探す** を選びます。ゲームのメニューから対象アイテムを特定でき、販売場所が見つかると表示されます。所持品に加え、チャットリンク、製作素材、ショップなどのアイテムメニューが対象です。
+3. 一覧の **地図** で場所を確認するか、**移動** で出発します。自動移動には [vnavmesh](https://github.com/awgil/ffxiv_navmesh) が必要です。NPCとの会話やショップ画面を閉じてから出発してください。
+4. 同じエリアならその場から歩きます。別エリアでは、そのエリアに直接テレポできる開放済みエーテライトから歩きます。複数ある場合はテレポ代が安い行き先を使います。通常のテレポ料金がかかります。到着後は自分でNPCに話しかけて購入します。
+
+`/vendorcompass` で一覧を再表示できます。移動中は **移動を中止** で徒歩案内を解除できます。ゲームがすでに受理したテレポには、ゲーム側の詠唱中断操作を使ってください。
+
+## 対応する販売場所
+
+街やフィールドに配置されたNPCについて、ゲームデータ上で店舗に結び付けられるギル販売と一部の交換販売を表示します。一覧には現在地と同じエリア、次にテレポ開放済みのエリアを優先します。品ぞろえやNPCの出現がクエスト進行・時期で変わる場合があります。都市の別区画など、直接テレポできない場所は、地図で確認して対象エリアに入ってから徒歩案内を開始してください。
+
+## 言語
+
+設定の「言語設定」で日本語・英語・ドイツ語・フランス語・韓国語・簡体字中国語・繁体字中国語を選べます。初回はゲーム言語、Dalamudの表示言語、英語の順に決定し、以降は選択を保存します。アイテム名・地名・NPC名はゲームデータの言語で表示します。
+
+## Build
+
+Build `VendorCompass/VendorCompass.csproj` in Release with the .NET 10 SDK and Dalamud API 15. Run `dotnet run --project Checks -c Release -- "<game sqpack directory>"` for offline checks.
+
+[任意の支援（Roxyz0501 / Ko-fi）](https://ko-fi.com/roxyz0501)
