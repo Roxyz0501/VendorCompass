@@ -25,6 +25,7 @@ public sealed class Plugin : IDalamudPlugin
     private readonly Travel travel;
     private readonly ConfigStore config;
     private readonly LocalizedFonts fonts;
+    private readonly StandardPluginInfo dependencyInfo = new(Dependencies.All);
     private readonly CancellationTokenSource cancel = new();
     private readonly Task<Catalog> catalog;
     private readonly CommandInfo command;
@@ -166,7 +167,9 @@ public sealed class Plugin : IDalamudPlugin
                 language = choice;
                 config.Change(config.Current with { Language = choice });
                 command.HelpMessage = T("Vendors");
-            }, T("Support"), () => StandardPluginTabs.DrawSupportContent(T("SupportHeading"), T("SupportText"), T("SupportRecipient"), T("OpenKoFi")));
+            }, T("Support"), () => StandardPluginTabs.DrawSupportContent(T("SupportHeading"), T("SupportText"), T("SupportRecipient"), T("OpenKoFi")),
+                StandardPluginInfo.Title(language),
+                Dependencies.All.Length == 0 ? null : () => dependencyInfo.Draw(pi, language));
             ImGui.EndTabBar();
         }
         ImGui.End();

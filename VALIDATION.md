@@ -1,3 +1,12 @@
+# Vendor Compass 1.0.0.1 — 2026-11-23
+
+- Copied StandardPluginInfo.cs and StandardPluginTabs.cs byte-for-byte from the project templates. A single cached StandardPluginInfo instance receives one feature dependency, vnavmesh. Its InternalName is verified against the upstream manifest and matches the existing navigation IPC.
+- Native headless ImGui rendered the canonical tab group in seven languages. Japanese and French output inspected at the existing 680x400 window size. Font glyph input includes common information labels and all seven dependency descriptions.
+- Simulated host state verified one InstalledPlugins read on initial information display, zero additional reads across 120 redraws, one read per explicit refresh, and unknown state after a read failure. Install and Manage clicks each invoked the installer once with vnavmesh and the appropriate AllPlugins/InstalledPlugins target. Language switching triggered zero additional reads/actions. Passing a null information callback performed zero state reads and hid the tab.
+- Existing catalog and settings checks passed against the installed game files, including 15,711 indexed items, 220 logical bytes for five changed saves, and zero writes for 480 unchanged checkpoints. Clean Release build completed with zero warnings or errors.
+- Runtime data access added by the tab is local and click-driven. The cached installed-plugin map is bounded by the host's installed-plugin list, refreshed on explicit request, and released with the window/plugin. Background polling, HTTP requests and settings writes from viewing the tab are zero by code inspection.
+- Actual in-game rendering and opening the real Dalamud installer remain unverified. The native UI test used a simulated plugin host. No player movement was initiated.
+
 # Vendor Compass 1.0.0.0 — 2026-11-07
 
 New standalone plugin. .NET 10 Release rebuild, Dalamud API 15, zero errors and warnings.
